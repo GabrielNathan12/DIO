@@ -20,7 +20,7 @@ class Menu:
         => """
         return input(textwrap.dedent(menu))
 
-    def criar_conta(self, usuario):
+    def criar_conta(self, /, *, usuario):
         numero_conta = len(usuario.contas) + 1
         conta = Conta(self.AGENCIA, numero_conta, usuario)
         usuario.contas.append(conta)
@@ -75,14 +75,14 @@ def criar_usuario():
     return novo_usuario
 
 
-def filtrar_usuario(cpf):
+def filtrar_usuario(cpf,/):
     for usuario in menu.usuarios:
         if usuario.cpf == cpf:
             return usuario
     return None
 
 
-def depositar(conta):
+def depositar(conta,/):
     valor = float(input("Informe o valor do depósito: "))
 
     if valor > 0:
@@ -93,7 +93,7 @@ def depositar(conta):
         print("\n@@@ Operação falhou! O valor informado é inválido. @@@")
 
 
-def sacar(conta):
+def sacar(conta,/):
     valor = float(input("Informe o valor do saque: "))
 
     excedeu_saldo = valor > conta.saldo
