@@ -1,11 +1,12 @@
-import datetime
-from pydantic import UUID4, BaseModel, Field
-
-class BaseSchema(BaseModel):
+from typing import Annotated
+from pydantic import BaseModel, Field
+from pydantic import UUID4
+from datetime import datetime
+class BaseSquema(BaseModel):
     class Config:
         extra = 'forbid'
-        from_attributes = True
+        from_attrbutes = True
 
-class OutMinix(BaseSchema):
-    id: UUID4 = Field(..., description='Identificador')
-    created_at: datetime = Field(..., description='Data de criação')
+class OutMixin(BaseSquema):
+    id: Annotated[UUID4, Field(description='Identificador')]
+    created_at: Annotated[datetime, Field(description='Data criação')]

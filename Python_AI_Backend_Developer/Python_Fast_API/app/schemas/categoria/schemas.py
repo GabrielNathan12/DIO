@@ -1,5 +1,9 @@
+from app.contrib.schemas import BaseSquema
+from typing import Annotated
 from pydantic import Field
-from app.contrib.schemas import BaseSchema
+from pydantic import UUID4
+class Categoria(BaseSquema):
+    nome: Annotated[str, Field(description='Categoria', example='Natação', max_length=10)]
 
-class Categoria(BaseSchema):
-     nome: str = Field(..., max_length=10, description='Nome da Categoria', example='natação')
+class CategoriaOut(Categoria):
+    id: Annotated[UUID4, Field(description='Identificador')]

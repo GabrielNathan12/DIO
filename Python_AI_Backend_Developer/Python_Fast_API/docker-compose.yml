@@ -1,11 +1,11 @@
 version: '3'
 services:
   db:
-    image: mongo:latest
+    image: postgres:latest
     environment:
-      MONGO_PASS: ${MONGO_PASS}
-      MONGO_USER: ${MONGO_USER}
-      MONGO_DB:   ${MONGO_DB}
+      POSTGRES_PASSWORD: workout
+      POSTGRES_USER: workout
+      POSTGRES_DB:   workout
 
     ports:
-      - "27017:27017"
+      - "5432:5432"

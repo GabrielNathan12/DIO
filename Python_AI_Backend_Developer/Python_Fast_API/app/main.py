@@ -1,10 +1,5 @@
-from app.routes.routers import api_router
 from fastapi import FastAPI
+from app.routers.routers import api_router
 
-app = FastAPI()
+app = FastAPI(title='Fast API DIO')
 app.include_router(api_router)
-
-
-
-
-
