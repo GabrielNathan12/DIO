@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    image: mongo:latest
+    environment:
+      MONGO_PASS: ${MONGO_PASS}
+      MONGO_USER: ${MONGO_USER}
+      MONGO_DB:   ${MONGO_DB}
+
+    ports:
+      - "27017:27017"
